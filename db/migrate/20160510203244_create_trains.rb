@@ -1,3 +1,4 @@
+# Class for trains creation
 class CreateTrains < ActiveRecord::Migration
   def change
     create_table :trains do |t|
