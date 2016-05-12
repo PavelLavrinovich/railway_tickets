@@ -1,0 +1,19 @@
+<h1>Routes</h1>
+<p>
+  <%= link_to 'Create a new route', new_route_path %>
+</p>
+
+<% @routes.each do |route| %>
+  <div>
+    <p>
+      Name is <%= route.name %>
+    </p>
+    <p>
+      <%= link_to 'Show', route %>
+      <%= link_to 'Update', edit_route_path(route) %>
+      <%= link_to 'Delete', route, method: :delete, data: { confirm: 'Are you sure?'}%>
+    </p>
+    <br>
+  </div>
+<% end %>
+
