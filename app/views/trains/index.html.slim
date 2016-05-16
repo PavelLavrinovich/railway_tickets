@@ -1,0 +1,14 @@
+p id="notice" = notice
+
+h1 Listing Trains
+
+p = link_to 'New Train', new_train_path
+
+- @trains.each do |train|
+  div
+    p = train.number
+    p
+      = link_to 'Show', train
+      = link_to 'Edit', edit_train_path(train)
+      = link_to 'Destroy', train, method: :delete, data: { confirm: 'Are you sure?' }
+    br
