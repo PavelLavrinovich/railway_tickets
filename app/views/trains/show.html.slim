@@ -2,7 +2,15 @@ p id="notice" = notice
 
 p
   strong Number:
-  = @train.number
+  = " #{@train.number}"
+
+- if @train.route.nil?
+  p There is no route
+- else
+  p Description of the route:
+  p
+    strong Name:
+    = " #{@train.route.name}"
 
 = link_to 'Edit', edit_train_path(@train)
 = link_to 'Back', trains_path
