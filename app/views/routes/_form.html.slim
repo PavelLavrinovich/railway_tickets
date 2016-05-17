@@ -5,5 +5,11 @@
     = f.label :name
     br
     = f.text_field :name
+
+  div class="field"
+    = f.label :railway_station_ids
+    br
+    = f.collection_select :railway_station_ids, @railway_stations, :id, :title, {}, { multiple: true }
+
   div class="actions"
     = f.submit

@@ -10,7 +10,17 @@ p = "The name is #{@route.name}"
   div
     p The list of trains
     - @route.trains.each do |train|
-     p = "train number is #{train.number}"
+     p = "Number is #{train.number}"
+
+br
+
+- if @route.railway_stations.empty?
+  p There are no railway stations.
+- else
+  div
+    p The list of stations
+    - @route.railway_stations.each do |railway_station|
+      p = "Title is #{railway_station.title}"
 
 p
   = link_to 'Edit', edit_route_path(@route)
