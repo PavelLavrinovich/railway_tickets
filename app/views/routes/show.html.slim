@@ -4,6 +4,14 @@ p This is a great route.
 
 p = "The name is #{@route.name}"
 
+- if @route.trains.empty?
+  p There are no trains.
+- else
+  div
+    p The list of trains
+    - @route.trains.each do |train|
+     p = "train number is #{train.number}"
+
 p
   = link_to 'Edit', edit_route_path(@route)
   = link_to 'Back to browse', routes_path
