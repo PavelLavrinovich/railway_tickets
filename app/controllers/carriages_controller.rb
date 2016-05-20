@@ -1,6 +1,5 @@
 class CarriagesController < ApplicationController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
-  before_action :set_trains, only: [:new, :edit]
 
   def index
     @carriages = Carriage.all
@@ -31,10 +30,6 @@ class CarriagesController < ApplicationController
   end
 
   private
-
-  def set_trains
-    @trains = Train.all
-  end
 
   def set_carriage
     @carriage = Carriage.find(params[:id])

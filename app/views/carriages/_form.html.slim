@@ -3,7 +3,7 @@
 
   div class="field"
     p = f.label :train
-    p = f.collection_select :train_id, @trains, :id, :number
+    p = f.collection_select :train_id, Train.all, :id, :number
 
   br
 

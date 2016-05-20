@@ -4,7 +4,7 @@ class CreateCarriages < ActiveRecord::Migration
       t.string :carriage_type
       t.integer :high_places
       t.integer :low_places
-      t.integer :train_id
+      t.belongs_to :train
 
       t.timestamps null: false
     end
