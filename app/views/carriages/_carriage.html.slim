@@ -1,0 +1,8 @@
+div
+  p = "Train number is #{carriage.train.number}"
+  p = "Type is #{carriage.carriage_type}"
+  p
+    = link_to 'Show', carriage
+    = link_to 'Edit', edit_carriage_path(carriage)
+    = link_to 'Delete', carriage, method: :delete, data: { confirm: 'Are you sure?'}
+  br
