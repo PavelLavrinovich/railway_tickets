@@ -8,7 +8,9 @@ html
   body
     == yield
     footer
-      | (c) 2016 Паша Лавринович. Учебный проект в
+      | (c) 2016 Паша Лавринович.
+      = link_to 'Учебный проект ', welcome_index_path
+      | в
       em = link_to ' онлайн-школе Thinknetica.', 'http://www.thinknetica.com'
 
 
