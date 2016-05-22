@@ -11,6 +11,10 @@ class Train < ActiveRecord::Base
     carriages_with_type(type).inject(0) { |total, carriage| total + carriage.send(places_method) }
   end
 
+  def last_carriage_number
+    carriages.size
+  end
+
   private
 
   def carriages_with_type(type)
