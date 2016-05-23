@@ -6,4 +6,6 @@ class RailwayStationsRoute < ActiveRecord::Base
   validates :number, uniqueness: { scope: :route_id }
 
   scope :ordered, -> { order(:number) }
+
+
 end

@@ -10,7 +10,7 @@ p = "The name is #{@route.name}"
   div
     p The list of trains
     - @route.trains.each do |train|
-     p = "Number is #{train.number}"
+      p = "Number is #{train.number}"
 
 br
 
@@ -19,8 +19,10 @@ br
 - else
   div
     p The list of stations
-    - @route.railway_stations.each do |railway_station|
-      p = "Title is #{railway_station.title}"
+    - @route.railway_stations_routes.ordered.each do |station_route|
+      p = "Number: #{station_route.number}"
+      = link_to ' Edit', edit_railway_stations_route_path(station_route)
+      p = "Title is #{station_route.railway_station.title}"
 
 p
   = link_to 'Edit', edit_route_path(@route)
