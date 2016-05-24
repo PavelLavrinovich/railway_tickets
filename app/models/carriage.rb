@@ -10,7 +10,7 @@ class Carriage < ActiveRecord::Base
   scope :ordered, -> { order(:number) }
   scope :ordered_desc, -> { order('number DESC') }
 
-  private
+  protected
 
   def set_number
     self.number = train.last_carriage_number + 1
