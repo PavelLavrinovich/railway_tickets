@@ -1,15 +1,9 @@
-= form_for(@carriage) do |f|
-  = render 'common/errors', resource: @carriage
+= form_for(@second_class_carriage) do |f|
+  = render 'common/errors', resource: @second_class_carriage
 
   div class="field"
     p = f.label :train
     p = f.collection_select :train_id, Train.all, :id, :number
-
-  br
-
-  div class="field"
-    p = f.label :carriage_type
-    p = f.select :carriage_type, %w(Compartment Second\ class)
 
   br
 
@@ -22,6 +16,18 @@
   div class="field"
     p = f.label :low_places
     p = f.text_field :low_places
+
+  br
+
+  div class="field"
+    p = f.label :side_high_places
+    p = f.text_field :side_high_places
+
+  br
+
+  div class="field"
+    p = f.label :side_low_places
+    p = f.text_field :side_low_places
 
   div class="field"
     = f.submit

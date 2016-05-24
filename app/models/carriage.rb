@@ -1,10 +1,8 @@
 class Carriage < ActiveRecord::Base
   belongs_to :train
 
-  validates :carriage_type, presence: true
-  validates :carriage_type, inclusion: { in: %w(Compartment Second\ class) }
-  validates :high_places, presence: true
-  validates :low_places, presence: true
+  validates :type, presence: true
+  validates :type, inclusion: { in: %w(CompartmentCarriage SecondClassCarriage SvCarriage SitCarriage) }
   validates :number, uniqueness: { scope: :train_id }
 
   before_validation :set_number

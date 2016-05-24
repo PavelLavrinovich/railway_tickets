@@ -1,0 +1,8 @@
+h2 Sit carriage
+
+div
+  p = "Train number is #{@sit_carriage.train.number}"
+  p = "Sit places count is #{@sit_carriage.sit_places}"
+  p
+    = link_to 'Edit', edit_sit_carriage_path(@sit_carriage)
+    = link_to 'Back', sit_carriages_path

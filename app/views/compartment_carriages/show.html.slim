@@ -1,0 +1,9 @@
+h2 Compartment carriage
+
+div
+  p = "Train number is #{@compartment_carriage.train.number}"
+  p = "High places count is #{@compartment_carriage.high_places}"
+  p = "Low places count is #{@compartment_carriage.low_places}"
+  p
+    = link_to 'Edit', edit_compartment_carriage_path(@compartment_carriage)
+    = link_to 'Back', compartment_carriages_path

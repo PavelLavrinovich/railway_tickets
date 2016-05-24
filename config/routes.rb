@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :railway_stations
   resources :routes
   resources :carriages
+  resources :compartment_carriages
+  resources :second_class_carriages
+  resources :sit_carriages
+  resources :sv_carriages
   resources :railway_stations_routes
 
   get 'welcome/index'

@@ -18,6 +18,6 @@ class Train < ActiveRecord::Base
   private
 
   def carriages_with_type(type)
-    carriages.where(carriage_type: type)
+    carriages.where(type: type)
   end
 end
