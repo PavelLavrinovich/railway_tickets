@@ -7,6 +7,9 @@ class Carriage < ActiveRecord::Base
 
   before_validation :set_number
 
+  scope :ordered, -> { order(:number) }
+  scope :ordered_desc, -> { order('number DESC') }
+
   private
 
   def set_number

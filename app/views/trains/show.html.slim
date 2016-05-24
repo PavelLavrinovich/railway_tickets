@@ -27,7 +27,8 @@ p = "Low places in second class carriages count is #{@train.count_places('Second
 br
 
 p Carriages list
-- @train.carriages.each do |carriage|
+- @carriages = @train.is_head ? @train.carriages.ordered : @train.carriages.ordered_desc
+- @carriages.each do |carriage|
   p = link_to carriage.number, carriage
 
 = link_to 'Edit', edit_train_path(@train)
