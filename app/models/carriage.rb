@@ -5,7 +5,7 @@ class Carriage < ActiveRecord::Base
   validates :type, inclusion: { in: %w(CompartmentCarriage SecondClassCarriage SvCarriage SitCarriage) }
   validates :number, uniqueness: { scope: :train_id }
 
-  before_validation :set_number
+  after_validation :set_number
 
   scope :ordered, -> { order(:number) }
   scope :ordered_desc, -> { order('number DESC') }
