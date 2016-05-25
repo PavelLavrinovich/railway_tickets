@@ -1,0 +1,8 @@
+h2 SV carriage
+
+div
+  p = "Train number is #{@carriage.train.number}"
+  p = "Low places count is #{@carriage.low_places}"
+  p
+    = link_to 'Edit', edit_sv_carriage_path(@carriage)
+    = link_to 'Back', sv_carriages_path

@@ -8,12 +8,16 @@ class Train < ActiveRecord::Base
   end
 
   def count_places(type, places_method)
-    carriages_with_type(type).inject(0) { |total, carriage| total + carriage.send(places_method) }
+    carriages_with_type(type).sum(places_method)
+  end
+
+  def last_carriage_number
+    carriages.maximum(:number)
   end
 
   private
 
   def carriages_with_type(type)
-    carriages.where(carriage_type: type)
+    carriages.where(type: type)
   end
 end

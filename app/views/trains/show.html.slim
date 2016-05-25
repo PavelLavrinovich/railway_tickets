@@ -14,17 +14,22 @@ p
 
 br
 
-p = "Compartment carriages count is #{@train.count_carriages('Compartment')}"
-p = "Second class carriages count is #{@train.count_carriages('Second class')}"
+p = "Compartment carriages count is #{@train.count_carriages('CompartmentCarriage')}"
+p = "Second class carriages count is #{@train.count_carriages('SecondClassCarriage')}"
 
 br
 
-p = "High places in compartment carriages count is #{@train.count_places('Compartment', :high_places)}"
-p = "Low places in compartment carriages count is #{@train.count_places('Compartment', :low_places)}"
-p = "High places in second class carriages count is #{@train.count_places('Second class', :high_places)}"
-p = "Low places in second class carriages count is #{@train.count_places('Second class', :low_places)}"
+p = "High places in compartment carriages count is #{@train.count_places('CompartmentCarriage', :high_places)}"
+p = "Low places in compartment carriages count is #{@train.count_places('CompartmentCarriage', :low_places)}"
+p = "High places in second class carriages count is #{@train.count_places('SecondClassCarriage', :high_places)}"
+p = "Low places in second class carriages count is #{@train.count_places('SecondClassCarriage', :low_places)}"
 
 br
+
+p Carriages list
+- @carriages = @train.is_head ? @train.carriages.ordered : @train.carriages.ordered_desc
+- @carriages.each do |carriage|
+  p = link_to carriage.number, carriage
 
 = link_to 'Edit', edit_train_path(@train)
 = link_to 'Back', trains_path

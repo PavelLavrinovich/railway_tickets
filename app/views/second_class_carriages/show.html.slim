@@ -1,0 +1,11 @@
+h2 Second class carriage
+
+div
+  p = "Train number is #{@carriage.train.number}"
+  p = "High places count is #{@carriage.high_places}"
+  p = "Low places count is #{@carriage.low_places}"
+  p = "Side high places count is #{@carriage.side_high_places}"
+  p = "Side low places count is #{@carriage.side_low_places}"
+  p
+    = link_to 'Edit', edit_second_class_carriage_path(@carriage)
+    = link_to 'Back', second_class_carriages_path

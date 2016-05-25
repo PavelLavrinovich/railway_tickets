@@ -1,6 +1,5 @@
 class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
-  before_action :set_railway_stations, only: [:new, :edit]
 
   def index
     @routes = Route.all
@@ -31,10 +30,6 @@ class RoutesController < ApplicationController
   end
 
   private
-
-  def set_railway_stations
-    @railway_stations = RailwayStation.all
-  end
 
   def set_route
     @route = Route.find(params[:id])

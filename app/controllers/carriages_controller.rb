@@ -2,18 +2,18 @@ class CarriagesController < ApplicationController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
 
   def index
-    @carriages = Carriage.all
+    @carriages = model.all
   end
 
   def show
   end
 
   def new
-    @carriage = Carriage.new
+    @carriage = model.new
   end
 
   def create
-    @carriage = Carriage.new(carriage_params)
+    @carriage = model.new(carriage_default_params)
     @carriage.save ? redirect_to(@carriage) : render(:new)
   end
 
@@ -21,7 +21,7 @@ class CarriagesController < ApplicationController
   end
 
   def update
-    @carriage.update(carriage_params) ? redirect_to(@carriage) : render(:new)
+    @carriage.update(carriage_default_params) ? redirect_to(@carriage) : render(:new)
   end
 
   def destroy
@@ -29,13 +29,21 @@ class CarriagesController < ApplicationController
     redirect_to carriages_path
   end
 
-  private
+  protected
 
   def set_carriage
-    @carriage = Carriage.find(params[:id])
+    @carriage = model.find(params[:id])
   end
 
-  def carriage_params
-    params.require(:carriage).permit(:train_id, :carriage_type, :high_places, :low_places)
+  def carriage_params(name, *args)
+    params.require(name).permit(args)
+  end
+
+  def carriage_default_params
+    carriage_params(:carriage, :train_id, :high_places, :low_places, :side_high_places, :side_low_places, :sit_places)
+  end
+
+  def model
+    Carriage
   end
 end
