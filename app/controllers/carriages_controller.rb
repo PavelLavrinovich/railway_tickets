@@ -14,7 +14,8 @@ class CarriagesController < ApplicationController
   end
 
   def create
-    @carriage = @train.carriages.new(carriage_default_params)
+    @carriage = model.new(carriage_default_params)
+    @carriage.train = @train
     @carriage.save ? redirect_to(@carriage) : render(:new)
   end
 
