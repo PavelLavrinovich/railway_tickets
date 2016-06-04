@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :sv_carriages,shallow: true
   end
   resources :railway_stations do
-    patch :update_number, on: :member
+    patch :update_info, on: :member
   end
   resources :routes
   resources :railway_stations_routes

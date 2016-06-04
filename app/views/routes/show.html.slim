@@ -23,13 +23,15 @@ br
       thead
         tr
           td width="100" Title
-          td Number
+          td Number Arrive time Leave time
       tbody
         - @route.railway_stations.ordered.each do |station|
           tr
             td = station.title
-            td = form_tag update_number_railway_station_path(station), method: :patch do
+            td = form_tag update_info_railway_station_path(station), method: :patch do
                = number_field_tag :number, station.number(@route)
+               = time_field_tag :arrive_time, station.arrive_time(@route)
+               = time_field_tag :leave_time, station.leave_time(@route)
                = hidden_field_tag :route_id, @route.id
                = submit_tag 'Edit'
 p

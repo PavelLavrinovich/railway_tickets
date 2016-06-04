@@ -10,8 +10,16 @@ class RailwayStation < ActiveRecord::Base
     station_route(route).try(:number)
   end
 
-  def update_number(route, number)
-    station_route(route).try(:update, number: number)
+  def arrive_time(route)
+    station_route(route).try(:arrive_time)
+  end
+
+  def leave_time(route)
+    station_route(route).try(:leave_time)
+  end
+
+  def update_info(route, number, arrive_time, leave_time)
+    station_route(route).try(:update, number: number, arrive_time: arrive_time, leave_time: leave_time)
   end
 
   protected
