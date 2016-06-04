@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     resources :compartment_carriages, shallow: true
     resources :second_class_carriages, shallow: true
     resources :sit_carriages, shallow: true
-    resources :sv_carriages,shallow: true
+    resources :sv_carriages, shallow: true
+    resources :tickets, shallow: true
   end
   resources :railway_stations do
     patch :update_info, on: :member
@@ -12,7 +13,9 @@ Rails.application.routes.draw do
   resources :routes
   resources :railway_stations_routes
 
-  resource :search, only: [:new, :show, :edit]
+  resource :search, only: [:show] do
+    post :search, on: :member
+  end
 
   get 'welcome/index'
 

@@ -1,0 +1,17 @@
+h1 Find your train
+
+p = form_tag search_search_path do
+
+  = label_tag 'Start station'
+  = collection_select nil, :start_station_id, RailwayStation.all, :id, :title
+  = label_tag 'End station'
+  = collection_select nil, :end_station_id, RailwayStation.all, :id, :title
+  = submit_tag 'Find'
+
+- @routes.each do |route|
+  - route.trains.each do |train|
+    p = form_tag new_train_ticket_path(train), method: :get
+      = "Train number is #{train.number}. "
+      = "Leave time is #{route.start_station_leave_time}. "
+      = "Arrive time is #{route.end_station_arrive_time}."
+      = submit_tag 'Buy a ticket'

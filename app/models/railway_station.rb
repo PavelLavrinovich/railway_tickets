@@ -3,6 +3,8 @@ class RailwayStation < ActiveRecord::Base
   has_many :routes, through: :railway_stations_routes
   has_many :start_tickets, class_name: 'Ticket', foreign_key: :start_station_id
   has_many :end_tickets, class_name: 'Ticket', foreign_key: :end_station_id
+  has_many :start_routes, class_name: 'Route', foreign_key: :start_station_id
+  has_many :end_routes, class_name: 'Route', foreign_key: :end_station_id
 
   scope :ordered, -> { joins(:railway_stations_routes).order('railway_stations_routes.number').uniq }
 
