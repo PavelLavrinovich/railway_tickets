@@ -15,9 +15,8 @@ class TicketsController < ApplicationController
     @user = User.new(fio: params[:fio], document: params[:document])
     if @user.save
       @train = Train.find(params[:train_id])
-      @ticket = Ticket.create(
-          user: @user, train: @train, start_station: @train.route.start_station, end_station: @train.route.end_station
-      )
+      @ticket = Ticket.create(user: @user, train: @train, start_station: @train.route.railway_stations.ordered.first,
+                              end_station: @train.route.railway_stations.ordered.last)
       redirect_to @ticket
     else
       render :new

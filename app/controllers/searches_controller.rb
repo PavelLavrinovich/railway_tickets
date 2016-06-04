@@ -4,7 +4,9 @@ class SearchesController < ApplicationController
   end
 
   def search
-    @routes = Route.where(start_station_id: params[:start_station_id], end_station_id: params[:end_station_id])
+    start_station = RailwayStation.find(params[:start_station_id])
+    end_station = RailwayStation.find(params[:end_station_id])
+    @routes = start_station.search_routes_to(end_station)
     render :show
   end
 end
