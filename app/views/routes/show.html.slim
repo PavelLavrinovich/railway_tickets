@@ -19,11 +19,21 @@ br
 - else
   div
     p The list of stations
-    - @route.railway_stations_routes.ordered.each do |station_route|
-      p = "Number: #{station_route.number}"
-      = link_to ' Edit', edit_railway_stations_route_path(station_route)
-      p = "Title is #{station_route.railway_station.title}"
-
+    table
+      thead
+        tr
+          td width="100" Title
+          td Number Arrive time Leave time
+      tbody
+        - @route.railway_stations.ordered.each do |station|
+          tr
+            td = station.title
+            td = form_tag update_info_railway_station_path(station), method: :patch do
+               = number_field_tag :number, station.number(@route)
+               = time_field_tag :arrive_time, station.arrive_time(@route)
+               = time_field_tag :leave_time, station.leave_time(@route)
+               = hidden_field_tag :route_id, @route.id
+               = submit_tag 'Edit'
 p
   = link_to 'Edit', edit_route_path(@route)
   = link_to 'Back to browse', routes_path

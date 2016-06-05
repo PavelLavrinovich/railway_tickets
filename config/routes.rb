@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
-  resources :trains
-  resources :railway_stations
+  resources :trains do
+    resources :carriages, shallow: true
+    resources :compartment_carriages, shallow: true
+    resources :second_class_carriages, shallow: true
+    resources :sit_carriages, shallow: true
+    resources :sv_carriages, shallow: true
+    resources :tickets, shallow: true
+  end
+  resources :railway_stations do
+    patch :update_info, on: :member
+  end
   resources :routes
-  resources :carriages
-  resources :compartment_carriages
-  resources :second_class_carriages
-  resources :sit_carriages
-  resources :sv_carriages
   resources :railway_stations_routes
+
+  resource :search, only: [:show] do
+    post :search, on: :member
+  end
 
   get 'welcome/index'
 

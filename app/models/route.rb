@@ -7,6 +7,14 @@ class Route < ActiveRecord::Base
 
   after_validation :set_stations_numbers
 
+  def start_station_leave_time
+    railway_stations.ordered.first.try(:leave_time, self)
+  end
+
+  def end_station_arrive_time
+    railway_stations.ordered.last.try(:arrive_time, self)
+  end
+
   private
 
   def set_stations_numbers
