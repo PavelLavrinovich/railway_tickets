@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
   def index
-    @tickets = Ticket.all
+    @tickets = current_user.tickets
   end
 
   def show
@@ -12,24 +13,11 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @user = User.new(fio: params[:fio], document: params[:document])
-    if @user.save
-      @train = Train.find(params[:train_id])
-      @ticket = Ticket.create(user: @user, train: @train, start_station: @train.route.railway_stations.ordered.first,
-                              end_station: @train.route.railway_stations.ordered.last)
-      redirect_to @ticket
-    else
-      render :new
-    end
-  end
-
-  private
-
-  def ticket_params
-
-  end
-
-  def user_params
-
+    current_user.fio = params[:fio]
+    current_user.document = params[:document]
+    @train = Train.find(params[:train_id])
+    @ticket = current_user.tickets.new(train: @train, start_station:
+        @train.route.railway_stations.ordered.first, end_station: @train.route.railway_stations.ordered.last)
+    current_user.save && @ticket.save ? redirect_to(@ticket) : render(:new)
   end
 end

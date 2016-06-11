@@ -1,0 +1,8 @@
+div
+  p = ticket.train.number
+  p = ticket.user.fio
+  p
+    = link_to 'Show', [:admin, ticket]
+    = link_to 'Edit', edit_admin_ticket_path(ticket)
+    = link_to 'Destroy', [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' }
+  br

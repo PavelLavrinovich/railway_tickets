@@ -1,0 +1,10 @@
+h2 Your ticket
+
+p = "FIO: #{@ticket.user.fio}"
+p = "Document: #{@ticket.user.document}"
+p = "Start station: #{@ticket.start_station.title}"
+p = "End station: #{@ticket.end_station.title}"
+
+= link_to 'Edit', edit_admin_ticket_path(@ticket)
+= link_to 'Delete', @ticket, method: :delete, data: { confirm: 'Are you sure?'}
+= link_to 'Back', tickets_path

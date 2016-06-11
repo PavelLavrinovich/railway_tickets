@@ -1,9 +1,0 @@
-= form_for [@train, @carriage] do |f|
-  = render 'common/errors', resource: @carriage
-
-  div class="field"
-    p = f.label :low_places
-    p = f.number_field :low_places
-
-  div class="field"
-    = f.submit

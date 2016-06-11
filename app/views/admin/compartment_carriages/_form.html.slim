@@ -1,0 +1,15 @@
+= form_for [:admin, @train, @carriage] do |f|
+  = render 'common/errors', resource: @carriage
+
+  div class="field"
+    p = f.label :high_places
+    p = f.number_field :high_places
+
+  br
+
+  div class="field"
+    p = f.label :low_places
+    p = f.number_field :low_places
+
+  div class="field"
+    = f.submit

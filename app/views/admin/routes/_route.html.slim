@@ -1,0 +1,7 @@
+div
+  p = "Name is #{route.name}"
+  p
+    = link_to 'Show', [:admin, route]
+    = link_to 'Update', edit_admin_route_path(route)
+    = link_to 'Delete', [:admin, route], method: :delete, data: { confirm: 'Are you sure?'}
+  br

@@ -10,8 +10,9 @@ p = form_tag search_search_path do
 
 - @routes.each do |route|
   - route.trains.each do |train|
-    p = form_tag new_train_ticket_path(train), method: :get
+    p = form_tag new_ticket_path, method: :get
       = "Train number is #{train.number}. "
       = "Leave time is #{route.start_station_leave_time}. "
       = "Arrive time is #{route.end_station_arrive_time}."
+      = hidden_field_tag :train_id, train.id
       = submit_tag 'Buy a ticket'

@@ -1,25 +1,31 @@
 Rails.application.routes.draw do
-  resources :trains do
-    resources :carriages, shallow: true
-    resources :compartment_carriages, shallow: true
-    resources :second_class_carriages, shallow: true
-    resources :sit_carriages, shallow: true
-    resources :sv_carriages, shallow: true
-    resources :tickets, shallow: true
+  devise_for :users, controllers: { registrations: 'registrations' }
+  get 'welcome/index'
+
+  root 'welcome#index'
+
+  namespace :admin do
+    resources :trains do
+      resources :carriages, shallow: true
+      resources :compartment_carriages, shallow: true
+      resources :second_class_carriages, shallow: true
+      resources :sit_carriages, shallow: true
+      resources :sv_carriages, shallow: true
+    end
+    resources :railway_stations do
+      patch :update_info, on: :member
+    end
+    resources :routes
+    resources :railway_stations_routes
+    resources :tickets
+    get 'console/index'
   end
-  resources :railway_stations do
-    patch :update_info, on: :member
-  end
-  resources :routes
-  resources :railway_stations_routes
+
+  resources :tickets, except: [:edit]
 
   resource :search, only: [:show] do
     post :search, on: :member
   end
-
-  get 'welcome/index'
-
-  root 'welcome#index'
 
   # The priority is based upon order of creation: first created ->
   # highest priority.

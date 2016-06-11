@@ -1,0 +1,12 @@
+h2 Edit the number
+
+= form_for [:admin, @railway_stations_route] do |f|
+  = render 'common/errors', resource: @railway_stations_route
+
+  div class="field"
+    = f.label :number
+    br
+    = f.text_field :number
+
+  div class="actions"
+    = f.submit

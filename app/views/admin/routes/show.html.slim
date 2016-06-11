@@ -1,0 +1,39 @@
+h1 Route
+
+p This is a great route.
+
+p = "The name is #{@route.name}"
+
+- if @route.trains.empty?
+  p There are no trains.
+- else
+  div
+    p The list of trains
+    - @route.trains.each do |train|
+      p = "Number is #{train.number}"
+
+br
+
+- if @route.railway_stations.empty?
+  p There are no railway stations.
+- else
+  div
+    p The list of stations
+    table
+      thead
+        tr
+          td width="100" Title
+          td Number Arrive time Leave time
+      tbody
+        - @route.railway_stations.ordered.each do |station|
+          tr
+            td = station.title
+            td = form_tag update_info_admin_railway_station_path(station), method: :patch do
+               = number_field_tag :number, station.number(@route)
+               = time_field_tag :arrive_time, station.arrive_time(@route)
+               = time_field_tag :leave_time, station.leave_time(@route)
+               = hidden_field_tag :route_id, @route.id
+               = submit_tag 'Edit'
+p
+  = link_to 'Edit', edit_admin_route_path(@route)
+  = link_to 'Back to browse', admin_routes_path

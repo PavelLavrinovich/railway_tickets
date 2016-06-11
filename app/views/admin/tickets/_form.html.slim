@@ -1,0 +1,15 @@
+= form_tag admin_tickets_path(params[:train_id]) do |f|
+
+  div class="field"
+    p = label_tag :fio
+    p = text_field_tag :fio, @ticket.user.fio
+
+  br
+
+  div class="field"
+    p = label_tag :document
+    p = text_field_tag :document, @ticket.user.document
+
+  div class="field"
+    = hidden_field_tag :train_id, params[:train_id]
+    = submit_tag 'Submit info'

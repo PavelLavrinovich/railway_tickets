@@ -1,0 +1,8 @@
+div
+  p = "Train number is #{compartment_carriage.train.number}"
+  p = "Type is #{compartment_carriage.type}"
+  p
+    = link_to 'Show', [:admin, compartment_carriage]
+    = link_to 'Edit', edit_admin_compartment_carriage_path(compartment_carriage)
+    = link_to 'Delete', [:admin, compartment_carriage], method: :delete, data: { confirm: 'Are you sure?'}
+  br
