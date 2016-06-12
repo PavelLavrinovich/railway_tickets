@@ -1,0 +1,9 @@
+= form_for [:admin, @train, @carriage] do |f|
+  = render 'common/errors', resource: @carriage
+
+  div class="field"
+    p = f.label :sit_places
+    p = f.number_field :sit_places
+
+  div class="field"
+    = f.submit

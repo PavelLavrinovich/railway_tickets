@@ -1,0 +1,7 @@
+div
+  p = ticket.train.number
+  p = ticket.fio
+  p
+    = link_to 'Show', ticket
+    = link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' }
+  br

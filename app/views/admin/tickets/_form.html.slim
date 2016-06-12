@@ -1,0 +1,15 @@
+= form_for [:admin, @ticket] do |f|
+
+  div class="field"
+    p = f.label :fio
+    p = f.text_field :fio
+
+  br
+
+  div class="field"
+    p = f.label :document
+    p = f.text_field:document
+
+  div class="field"
+    = hidden_field_tag :train_id, params[:train_id]
+    = f.submit 'Submit info'
