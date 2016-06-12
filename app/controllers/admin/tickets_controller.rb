@@ -17,24 +17,22 @@ module Admin
     end
 
     def update
-      @ticket.user.fio = params[:fio]
-      @ticket.user.document = params[:document]
-      @ticket.user.save ? redirect_to(@ticket) : render(:new)
+      @ticket.update(ticket_params) ? redirect_to([:admin, @ticket]) : render(:new)
     end
 
-    def create
-      current_user.fio = params[:fio]
-      current_user.document = params[:document]
-      @train = Train.find(params[:train_id])
-      @ticket = current_user.tickets.new(train: @train, start_station: @train.route.railway_stations.ordered.first,
-                                         end_station: @train.route.railway_stations.ordered.last)
-      current_user.save && @ticket.save ? redirect_to(@ticket) : render(:new)
+    def destroy
+      @ticket.destroy
+      redirect_to admin_tickets_path
     end
 
     private
 
     def set_ticket
       @ticket = Ticket.find(params[:id])
+    end
+
+    def ticket_params
+      params.require(:ticket).permit(:fio, :document)
     end
   end
 end

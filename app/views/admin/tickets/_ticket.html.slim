@@ -1,6 +1,6 @@
 div
   p = ticket.train.number
-  p = ticket.user.fio
+  p = ticket.fio
   p
     = link_to 'Show', [:admin, ticket]
     = link_to 'Edit', edit_admin_ticket_path(ticket)
