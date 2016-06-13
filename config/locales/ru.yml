@@ -1,2 +1,38 @@
 ru:
-  hello: 'Привет'
+  common:
+    back: 'Назад'
+    errors: 'При заполнении были допущены ошибки'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+      form:
+        submit: 'Сохранить станцию'
+  layouts:
+    application:
+      hi: 'Привет,'
+      log_out: 'Выйти'
+      log_in: 'Войти'
+      copyright: ' (c) 2016 Паша Лавринович. '
+      project_link: 'Учебный проект'
+      in: ' в '
+      thinknetica: 'онлайн-школе Thinknetica.'
+  welcome:
+    index:
+      title: 'Добро пожаловать'
+      search: 'Найти билет'
+  searches:
+    show:
+      title: 'Найдите свой билет'
+      start_station: 'Начальная станция'
+      end_station: 'Конечная станция'
+      find: 'Искать'
+      train_number: 'Номер поезда'
+      arrive_time: 'Время прибытия'
+      leave_time: 'Время отправления'
+      buy: 'Купить билет'
+  tickets:
+    new:
+      title: 'Введите данные пассажира'
+    form:
+      submit: 'Подтвердить'

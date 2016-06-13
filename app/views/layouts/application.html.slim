@@ -10,17 +10,17 @@ html
     p class="alert" = alert
 
     - if user_signed_in?
-      = "Hi, #{current_user.first_name} "
-      = link_to 'Log Out', destroy_user_session_path, method: :delete
+      = "#{t('.hi')} #{current_user.first_name} "
+      = link_to t('.log_out'), destroy_user_session_path, method: :delete
     - else
-      = link_to 'Log In', new_user_session_path
+      = link_to t('.log_in'), new_user_session_path
 
     == yield
     footer
-      | (c) 2016 Паша Лавринович.
-      = link_to 'Учебный проект ', welcome_index_path
-      | в
-      em = link_to ' онлайн-школе Thinknetica.', 'http://www.thinknetica.com'
+      = t('.copyright')
+      = link_to t('.project_link'), welcome_index_path
+      = t('.in')
+      em = link_to t('.thinknetica'), 'http://www.thinknetica.com'
 
 
 

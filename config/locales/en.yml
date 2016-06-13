@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  common:
+    back: "Back"
+    errors: "There are some erros"
+  admin:
+    railway_stations:
+      new:
+        title: "New station"
+      form:
+        submit: "Save the station"
