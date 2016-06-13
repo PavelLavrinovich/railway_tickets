@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
-  get 'welcome/index'
-
-  root 'welcome#index'
 
   namespace :admin do
     resources :trains do
@@ -26,6 +23,8 @@ Rails.application.routes.draw do
   resource :search, only: [:show] do
     post :search, on: :member
   end
+
+  root 'searches#show'
 
   # The priority is based upon order of creation: first created ->
   # highest priority.

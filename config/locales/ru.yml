@@ -10,6 +10,10 @@ ru:
         submit: 'Сохранить станцию'
   layouts:
     application:
+      title: 'Свободная касса'
+      admin: 'Панель управления'
+      tickets: 'Билеты'
+      search: 'Поиск'
       hi: 'Привет,'
       log_out: 'Выйти'
       log_in: 'Войти'

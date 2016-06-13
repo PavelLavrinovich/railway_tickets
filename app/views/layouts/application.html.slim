@@ -1,24 +1,61 @@
 doctype html
 html
   head
-    title RailwayTickets
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title = content_for?(:title) ? yield(:title) : t('.title')
     = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', :media => 'all'
+
+    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed',
+        :type => 'image/png', :sizes => '144x144'
+
+    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed',
+        :type => 'image/png', :sizes => '114x114'
+
+    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed',
+        :type => 'image/png', :sizes => '72x72'
+
+    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+
+    = javascript_include_tag 'application'
+
+    script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"
   body
-    p id="notice" class="notice" = notice
-    p class="alert" = alert
+    div class="navbar navbar-default navbar-static-top"
+      div class="container"
+        button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse"
+          span class="icon-bar"
+          span class="icon-bar"
+          span class="icon-bar"
+        a class="navbar-brand" href="#" = t('.title')
+        div class="navbar-collapse collapse navbar-responsive-collapse"
+          ul class="nav navbar-nav"
+            - if user_signed_in? && current_user.admin?
+              li = link_to t('.admin'), admin_console_index_path
+            li = link_to t('.tickets'), tickets_path
+            li = link_to t('.search'), search_path
 
-    - if user_signed_in?
-      = "#{t('.hi')} #{current_user.first_name} "
-      = link_to t('.log_out'), destroy_user_session_path, method: :delete
-    - else
-      = link_to t('.log_in'), new_user_session_path
+      div class="container"
+        div class="row"
+          div class="col-lg-9"
+            = bootstrap_flash
+            == yield
+          div class="col-lg-3"
+            div class="well sidebar-nav"
+              - if user_signed_in?
+                = "#{t('.hi')} #{current_user.first_name} "
+                = link_to t('.log_out'), destroy_user_session_path, method: :delete
+              - else
+                = link_to t('.log_in'), new_user_session_path
 
-    == yield
     footer
       = t('.copyright')
-      = link_to t('.project_link'), welcome_index_path
+      = link_to t('.project_link'), root_path
       = t('.in')
       em = link_to t('.thinknetica'), 'http://www.thinknetica.com'
 

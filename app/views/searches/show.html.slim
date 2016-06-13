@@ -1,18 +1,22 @@
-h1 = t('.title')
+h2 = t('.title')
 
-p = form_tag search_search_path do
+div class="col-lg-4"
+  p = form_tag search_search_path do
 
-  = label_tag t('.start_station')
-  = collection_select nil, :start_station_id, RailwayStation.all, :id, :title
-  = label_tag t('.end_station')
-  = collection_select nil, :end_station_id, RailwayStation.all, :id, :title
-  = submit_tag t('.find')
+    = label_tag t('.start_station')
+    = select_tag :start_station_id, options_from_collection_for_select(@stations, :id, :title), class: 'form-control'
+    br
+    = label_tag t('.end_station')
+    = select_tag :end_station_id, options_from_collection_for_select(@stations, :id, :title), class: 'form-control'
+    br
+    = submit_tag t('.find'), class: 'btn btn-primary'
 
 - @routes.each do |route|
   - route.trains.each do |train|
     p = form_tag new_ticket_path, method: :get
-      = "#{t('.train_number')} #{train.number}. "
-      = "#{t('.leave_time')} #{route.start_station_leave_time}. "
-      = "#{t('.arrive_time')} #{route.end_station_arrive_time}."
-      = hidden_field_tag :train_id, train.id
-      = submit_tag t('.buy')
+      p = "#{t('.train_number')} #{train.number}. "
+      p = "#{t('.leave_time')} #{route.start_station_leave_time}. "
+      p = "#{t('.arrive_time')} #{route.end_station_arrive_time}."
+      p = hidden_field_tag :train_id, train.id
+      p = submit_tag t('.buy')
+    br
