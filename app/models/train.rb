@@ -12,7 +12,7 @@ class Train < ActiveRecord::Base
   end
 
   def last_carriage_number
-    carriages.maximum(:number)
+    carriages.maximum(:number) || 0
   end
 
   private

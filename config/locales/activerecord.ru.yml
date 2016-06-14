@@ -1,0 +1,19 @@
+ru:
+  activerecord:
+    models:
+      railway_station: 'Станция'
+      train: 'Поезд'
+      ticket: 'Билет'
+    attributes:
+      railway_station:
+        title: 'Название'
+      train:
+        number: 'Номер'
+      ticket:
+        fio: 'ФИО'
+        document: 'Документ'
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+        taken: 'уже кто-то занял'
+        inclusion: 'не входит в множество допустимых значений'

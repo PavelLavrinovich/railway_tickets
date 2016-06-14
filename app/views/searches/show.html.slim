@@ -1,18 +1,22 @@
-h1 Find your train
+h2 = t('.title')
 
-p = form_tag search_search_path do
+div class="col-lg-4"
+  p = form_tag search_search_path do
 
-  = label_tag 'Start station'
-  = collection_select nil, :start_station_id, RailwayStation.all, :id, :title
-  = label_tag 'End station'
-  = collection_select nil, :end_station_id, RailwayStation.all, :id, :title
-  = submit_tag 'Find'
+    = label_tag t('.start_station')
+    = select_tag :start_station_id, options_from_collection_for_select(@stations, :id, :title), class: 'form-control'
+    br
+    = label_tag t('.end_station')
+    = select_tag :end_station_id, options_from_collection_for_select(@stations, :id, :title), class: 'form-control'
+    br
+    = submit_tag t('.find'), class: 'btn btn-primary'
 
 - @routes.each do |route|
   - route.trains.each do |train|
     p = form_tag new_ticket_path, method: :get
-      = "Train number is #{train.number}. "
-      = "Leave time is #{route.start_station_leave_time}. "
-      = "Arrive time is #{route.end_station_arrive_time}."
-      = hidden_field_tag :train_id, train.id
-      = submit_tag 'Buy a ticket'
+      p = "#{t('.train_number')} #{train.number}. "
+      p = "#{t('.leave_time')} #{route.start_station_leave_time}. "
+      p = "#{t('.arrive_time')} #{route.end_station_arrive_time}."
+      p = hidden_field_tag :train_id, train.id
+      p = submit_tag t('.buy')
+    br
