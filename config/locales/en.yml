@@ -29,3 +29,15 @@ en:
         title: "New station"
       form:
         submit: "Save the station"
+  mailers:
+    tickets:
+      buy:
+        subject: 'You booked a ticket'
+        thank: 'Thank you so much'
+        info: 'Your ticket:'
+        footer: "Don't miss it!"
+      destroy:
+        subject: 'You deleted a ticket'
+        sorry: 'We are so sorry'
+        info: 'Your ticket:'
+        footer: "Your train will be miss you!"

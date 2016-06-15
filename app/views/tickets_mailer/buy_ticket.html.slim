@@ -1,0 +1,8 @@
+h2 = "#{t('mailers.tickets.buy.thank')}, #{@user.first_name}!"
+
+p = t('mailers.tickets.buy.info')
+
+p = "#{@ticket.start_station.title}: #{@ticket.train.route.start_station_leave_time}"
+p = "#{@ticket.end_station.title}: #{@ticket.train.route.end_station_arrive_time}"
+
+p = t('mailers.tickets.buy.footer')
