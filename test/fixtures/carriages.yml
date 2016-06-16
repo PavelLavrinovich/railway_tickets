@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  string: MyString
+  high_places: 1
+  low_places: MyString
+  integer: MyString
+  train_id: MyString
+  integer: MyString
+
+two:
+  type: 
+  string: MyString
+  high_places: 1
+  low_places: MyString
+  integer: MyString
+  train_id: MyString
+  integer: MyString

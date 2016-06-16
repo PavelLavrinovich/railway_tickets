@@ -6,7 +6,8 @@ class RailwayStation < ActiveRecord::Base
 
   validates :title, presence: true
 
-  scope :ordered, -> { joins(:railway_stations_routes).order('railway_stations_routes.number').uniq }
+  scope :ordered, -> { joins(:railway_stations_routes).group('railway_stations_routes.number', 'railway_stations.id').
+      order('railway_stations_routes.number')}
 
   def number(route)
     station_route(route).try(:number)
