@@ -1,7 +1,8 @@
 div
-  p = "Title is #{railway_station.title}"
+  p id="railway_station_title_#{railway_station.id}" = "Title is #{railway_station.title}"
+  p = render 'form', station: railway_station, hidden: true
   p
     = link_to 'Show', [:admin, railway_station]
-    = link_to 'Edit', edit_admin_railway_station_path(railway_station)
+    = link_to 'Edit', '', class: 'edit-station', data: { station_id: railway_station.id }
     = link_to 'Destroy', [:admin, railway_station], method: :delete, data: { confirm: 'Are you sure?' }
   br

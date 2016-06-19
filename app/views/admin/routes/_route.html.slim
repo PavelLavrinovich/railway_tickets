@@ -1,7 +1,8 @@
 div
-  p = "Name is #{route.name}"
+  p id="route_name_#{route.id}" = "Name is #{route.name}"
+  p = render 'form', route: route, hidden: true
   p
     = link_to 'Show', [:admin, route]
-    = link_to 'Update', edit_admin_route_path(route)
+    = link_to 'Edit', '', class: 'edit-route', data: { route_id: route.id }
     = link_to 'Delete', [:admin, route], method: :delete, data: { confirm: 'Are you sure?'}
   br

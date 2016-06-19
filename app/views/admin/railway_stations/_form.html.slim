@@ -1,5 +1,5 @@
-= form_for [:admin, @railway_station] do |f|
-  = render 'common/errors', resource: @railway_station
+= form_for [:admin, station], html: { style: "display: #{hidden ? 'none' : 'block'}" } do |f|
+  = render 'common/errors', resource: station
 
   div class="field"
     = f.label :title

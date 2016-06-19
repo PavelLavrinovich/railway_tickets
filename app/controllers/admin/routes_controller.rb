@@ -22,7 +22,7 @@ module Admin
     end
 
     def update
-      @route.update(route_params) ? redirect_to([:admin, @route]) : render(:edit)
+      @route.update(route_params) ? redirect_to(admin_routes_path) : render(:edit)
     end
 
     def destroy
