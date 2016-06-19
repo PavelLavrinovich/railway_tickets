@@ -1,5 +1,5 @@
-= form_for [:admin, @train, @carriage] do |f|
-  = render 'common/errors', resource: @carriage
+= form_for [:admin, train, carriage], html: { style: "display: #{hidden ? 'none' : 'block'}" } do |f|
+  = render 'common/errors', resource: carriage
 
   div class="field"
     p = f.label :high_places

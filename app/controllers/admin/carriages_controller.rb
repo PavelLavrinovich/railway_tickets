@@ -12,6 +12,9 @@ module Admin
 
     def new
       @carriage = model.new
+      @types = %w(new_compartment_carriage new_second_class_carriage new_sit_carriage new_sv_carriage)
+      @carriages = { compartment: CompartmentCarriage.new, second_class: SecondClassCarriage.new, sit: SitCarriage.new,
+                     sv: SvCarriage.new }
     end
 
     def create
