@@ -1,8 +1,5 @@
 h1 Carriages
 
-p = link_to 'Compartment carriages', admin_train_compartment_carriages_path
-p = link_to 'Second class carriages', admin_train_second_class_carriages_path
-p = link_to 'SV carriages', admin_train_sv_carriages_path
-p = link_to 'Sit carriages', admin_train_sit_carriages_path
+p = link_to 'New Carriage', new_admin_train_carriage_path(@train)
 
 = render @carriages

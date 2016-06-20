@@ -7,6 +7,6 @@ div
   p = "Side high places count is #{@carriage.side_high_places}"
   p = "Side low places count is #{@carriage.side_low_places}"
   p
-    = link_to 'Edit', edit_admin_train_second_class_carriage_path(@carriage)
-    = link_to 'Delete', [:admin, @carriage], method: :delete, data: { confirm: 'Are you sure?'}
+    = link_to 'Edit', edit_admin_second_class_carriage_path(@carriage)
+    = link_to 'Delete', [:admin, @train, @carriage], method: :delete, data: { confirm: 'Are you sure?'}
     = link_to 'Back', [:admin, @carriage.train]

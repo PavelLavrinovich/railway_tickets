@@ -4,6 +4,6 @@ div
   p = "Train number is #{@carriage.train.number}"
   p = "Low places count is #{@carriage.low_places}"
   p
-    = link_to 'Edit', edit_admin_train_sv_carriage_path(@carriage)
+    = link_to 'Edit', edit_admin_sv_carriage_path(@carriage)
     = link_to 'Delete', [:admin, @carriage], method: :delete, data: { confirm: 'Are you sure?'}
     = link_to 'Back', [:admin, @carriage.train]

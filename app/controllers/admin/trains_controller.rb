@@ -1,7 +1,7 @@
 module Admin
   class TrainsController < BaseController
     before_action :set_train, only: [:show, :edit, :update, :destroy]
-    before_action :set_routes, only: [:new, :edit]
+    before_action :set_routes, only: [:new, :edit, :index]
 
     def index
       @trains = Train.all
@@ -23,7 +23,7 @@ module Admin
     end
 
     def update
-      @train.update(train_params) ? redirect_to([:admin, @train]) : render(:edit)
+      @train.update(train_params) ? redirect_to(admin_trains_path) : render(:edit)
     end
 
     def destroy

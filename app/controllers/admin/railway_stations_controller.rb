@@ -22,7 +22,7 @@ module Admin
     end
 
     def update
-      @railway_station.update(railway_station_params) ? redirect_to([:admin, @railway_station]) : render(:edit)
+      @railway_station.update(railway_station_params) ? redirect_to(admin_railway_stations_path) : render(:edit)
     end
 
     def destroy

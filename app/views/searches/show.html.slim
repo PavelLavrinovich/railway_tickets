@@ -1,7 +1,7 @@
 h2 = t('.title')
 
 div class="col-lg-4"
-  p = form_tag search_search_path do
+  p = form_tag search_search_path, class: 'find-form' do
 
     = label_tag t('.start_station')
     = select_tag :start_station_id, options_from_collection_for_select(@stations, :id, :title), class: 'form-control'
@@ -9,7 +9,7 @@ div class="col-lg-4"
     = label_tag t('.end_station')
     = select_tag :end_station_id, options_from_collection_for_select(@stations, :id, :title), class: 'form-control'
     br
-    = submit_tag t('.find'), class: 'btn btn-primary'
+    = submit_tag t('.find'), class: 'btn btn-primary', id: 'find'
 
 - @routes.each do |route|
   - route.trains.each do |train|

@@ -1,7 +1,7 @@
 h2 Edit your carriage
 
-= render 'form'
+= render 'form', train: nil, carriage: @carriage, hidden: false
 
 p
   = link_to 'Show', [:admin, @carriage]
-  = link_to 'Back', admin_train_sv_carriages_path
+  = link_to 'Back', [:admin, @carriage.train]

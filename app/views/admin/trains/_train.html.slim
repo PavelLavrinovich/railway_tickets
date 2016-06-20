@@ -1,7 +1,8 @@
 div
-  p = train.number
+  p id="train_number_#{train.id}" = train.number
+  p = render 'form', train: train, hidden: true
   p
     = link_to 'Show', [:admin, train]
-    = link_to 'Edit', edit_admin_train_path(train)
+    = link_to 'Edit', '', class: 'edit-train', data: { train_id: train.id }
     = link_to 'Destroy', [:admin, train], method: :delete, data: { confirm: 'Are you sure?' }
   br

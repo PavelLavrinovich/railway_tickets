@@ -1,6 +1,6 @@
 h2 Edit your carriage
 
-= render 'form'
+= render 'form', train: nil, carriage: @carriage, hidden: false
 
 p
   = link_to 'Show', [:admin, @carriage]
